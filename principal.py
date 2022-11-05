@@ -1,6 +1,9 @@
 from asyncio.windows_events import NULL
 from genericpath import exists
 import os
+from tkinter import * 
+import tkinter as tk
+
 productos_nombres_precios = {}
 '''
 Hecho por Carlos Eduardo Chavarria Centeno
@@ -80,18 +83,33 @@ def eliminar_productos(param_productos_nombres_precios):
         os.system("pause")
     
 
+def ventana(param_productos_nombres_precios):
+    raiz = Tk()
+    raiz.title("Diccionarios en python")
+    
+    raiz.resizable(0,0)
+
+    frame1 = Frame()
+    frame1.config(bg='gray')
+    frame1.config(width="720", height="580")
+
+    frame1.pack(fill='both', expand='True') 
+
+    raiz.mainloop()
+
 def menu(param_productos_nombres_precios):
     
     
     opcion = 1
-    while(opcion > 0 and opcion < 4):
+    while(opcion > 0 and opcion < 5):
         os.system("cls")
         print("Bienvenido al software de colecciones de datos (Diccionarios)".center(90))
         print("Que desea hacer?: ")
         print("1. Agregar datos al diccionario")
         print("2. Leer datos")
         print("3. Eliminar productos")
-        print("4. Salir")
+        print("4. Visualizar una ventana")
+        print("5. Salir")
         opcion = int(input())
 
         if(opcion == 1):
@@ -100,6 +118,8 @@ def menu(param_productos_nombres_precios):
             leer_productos(param_productos_nombres_precios)
         elif(opcion == 3):
             eliminar_productos(param_productos_nombres_precios)
+        elif(opcion == 4):
+            ventana(param_productos_nombres_precios)
         else:  
             ("Ingrese una opcion valida")
             os.system("pause")
