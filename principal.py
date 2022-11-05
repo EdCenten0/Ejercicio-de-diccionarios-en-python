@@ -19,7 +19,7 @@ def agregar_productos(param_productos_nombres_precios):
             print("Por favor, agregue un numero")
             break
 
-        print("Desea agregar otro producto?")
+        print("\nDesea agregar otro producto?")
         param_productos_nombres_precios[nombre_producto] = precio_producto;
 
         print("1. Si")
@@ -27,23 +27,31 @@ def agregar_productos(param_productos_nombres_precios):
 
         try:
             i = int(input()) - 1
+            print("")
         except:
             print("Ingrese una opcion valida")
             menu(param_productos_nombres_precios)
 
 def leer_productos(param_productos_nombres_precios):
-
-    opcion = int(input("Desea leer todos los productos o uno en especifico?1\n1. Todos\n2. Uno es especifico\n"))
+    os.system("cls")
+    opcion = int(input("Desea leer todos los productos o uno en especifico?1\n1. Todos\n2. Uno en especifico\n"))
     
     if(opcion == 1):
+        os.system("cls")
+        print("Todos los productos son: \n")
         print(param_productos_nombres_precios)
+        os.system("pause")
     elif(opcion == 2):
+        os.system("cls")
         key = input("Ingrese el nombre del producto del cual desea ver el precio: ")
         if(param_productos_nombres_precios is not NULL):
             try:
+                os.system("cls")
+                print("El producto que busca es: ")
                 print(key, ': ', param_productos_nombres_precios[key])
+                os.system("pause")
             except:
-                print("El elemento no existe")
+                print("El elemento llamado \'" + key + "\' no existe")
                 os.system("pause")
                 menu(param_productos_nombres_precios)
             
@@ -54,10 +62,12 @@ def leer_productos(param_productos_nombres_precios):
 
 
 def menu(param_productos_nombres_precios):
-    os.system("cls")
-    print("Bienvenido al software de colecciones de datos (Diccionarios)".center(90))
+    
+    
     opcion = 1
     while(opcion > 0 and opcion < 4):
+        os.system("cls")
+        print("Bienvenido al software de colecciones de datos (Diccionarios)".center(90))
         print("Que desea hacer?: ")
         print("1. Agregar datos al diccionario")
         print("2. Leer datos")
