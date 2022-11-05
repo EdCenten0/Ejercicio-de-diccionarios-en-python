@@ -1,4 +1,5 @@
 from asyncio.windows_events import NULL
+from genericpath import exists
 import os
 productos_nombres_precios = {}
 
@@ -60,6 +61,18 @@ def leer_productos(param_productos_nombres_precios):
         os.system("pause")
     
 
+def eliminar_productos(param_productos_nombres_precios):
+    os.system("cls")
+    key_delete = input("Ingrese el nombre del producto que desea eliminar: ")
+    
+    try:
+        del param_productos_nombres_precios[key_delete]
+        print("El producto \'", key_delete, "\' ha sido eliminado con exito")
+        os.system("pause")
+    except:
+        print("El producto \'", key_delete, "\' no existe")
+        os.system("pause")
+    
 
 def menu(param_productos_nombres_precios):
     
@@ -71,6 +84,7 @@ def menu(param_productos_nombres_precios):
         print("Que desea hacer?: ")
         print("1. Agregar datos al diccionario")
         print("2. Leer datos")
+        print("3. Eliminar productos")
         print("4. Salir")
         opcion = int(input())
 
@@ -78,6 +92,8 @@ def menu(param_productos_nombres_precios):
             agregar_productos(param_productos_nombres_precios)
         elif(opcion == 2):
             leer_productos(param_productos_nombres_precios)
+        elif(opcion == 3):
+            eliminar_productos(param_productos_nombres_precios)
         else:  
             ("Ingrese una opcion valida")
             os.system("pause")
