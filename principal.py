@@ -2,7 +2,13 @@ from asyncio.windows_events import NULL
 from genericpath import exists
 import os
 productos_nombres_precios = {}
+'''
+Hecho por Carlos Eduardo Chavarria Centeno
+@EdCenten0
+05/11/2022
 
+'''
+# Este es un ejercicio de practica de diccionarios basicos hecho por estudiar y por hobbie
 
 
 
